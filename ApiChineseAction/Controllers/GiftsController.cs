@@ -59,9 +59,9 @@ namespace ApiChineseAction.Controllers
 
         // DELETE api/<<GiftsController>/5
         [HttpDelete("{id}")]
-        public void Delete(int id)
+        public async Task<bool> Delete(int id)
         {
-            _giftService.deleteGift(id);
+           return await _giftService.deleteGift(id);
         }
         [HttpPost("isUnique")]
          public async Task<bool> isUnique(Gift gift)

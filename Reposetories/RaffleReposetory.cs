@@ -11,7 +11,7 @@ namespace Reposetories
     public class RaffleReposetory : IRaffleReposetory
     {
         static int Identity = 1;
-        static List<LotteryTicket> raffleTickets = [];
+        public static List<LotteryTicket> raffleTickets = [];
         public async Task<List<LotteryTicket>> createTicket(List<LotteryTicket> lotteryTickets)
         {
             lotteryTickets.ForEach(lotteryTicket =>
