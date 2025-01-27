@@ -11,6 +11,7 @@ namespace Reposetories
     public class RaffleReposetory : IRaffleReposetory
     {
         static int Identity = 1;
+        static DateTime dateOfRaffle;
         public static List<LotteryTicket> raffleTickets = [];
         public async Task<List<LotteryTicket>> createTicket(List<LotteryTicket> lotteryTickets)
         {
@@ -25,6 +26,15 @@ namespace Reposetories
         public async Task<LotteryTicket> getTicketById(int id)
         {
            return raffleTickets.Find(raffleTicket => raffleTicket.Id == id);    
+        }
+        public async Task<DateTime> getDateOfRaffle()
+        {
+            return dateOfRaffle;
+        }
+        public async Task<DateTime> setDateOfRaffle(DateTime dataToSet)
+        {
+            dateOfRaffle = dataToSet;
+            return dataToSet;
         }
         public async Task<List<RaffleResponse>> GetRaffleResponse()
         {

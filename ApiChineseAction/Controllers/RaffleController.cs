@@ -15,6 +15,30 @@ namespace ApiChineseAction.Controllers
         {
             _raffleService = raffleService;  
         }
+        [HttpGet("DateOfraffle")]
+        public async Task<ActionResult<DateTime>> DateOfraffle()
+        {
+            try
+            {
+                return await _raffleService.getDateOfRaffle();
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
+        [HttpPost("DateOfraffle")]
+        public async Task<ActionResult<DateTime>> getDateOfraffle([FromBody] DateTime dateToSet)
+        {
+            try
+            {
+                return await _raffleService.setDateOfRaffle(dateToSet);
+            }
+            catch (Exception e)
+            {
+                return BadRequest();
+            }
+        }
         // GET: api/<RaffleController>
         [HttpGet("raffle")]
         public async Task<ActionResult<List<RaffleResponse>>> raffle()

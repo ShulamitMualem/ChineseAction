@@ -11,9 +11,18 @@ namespace Services
     public class RaffleService : IRaffleService
     {
         IRaffleReposetory _raffleReposetory;
+
         public RaffleService(IRaffleReposetory raffleReposetory)
         {
             _raffleReposetory = raffleReposetory;
+        }
+        public async Task<DateTime> getDateOfRaffle()
+        {
+            return await _raffleReposetory.getDateOfRaffle();
+        }
+        public async Task<DateTime> setDateOfRaffle(DateTime dataToSet)
+        {
+            return await _raffleReposetory.setDateOfRaffle(dataToSet);
         }
         public async Task<List<LotteryTicket>> createTicket(List<LotteryTicket> lotteryTickets)
         {
