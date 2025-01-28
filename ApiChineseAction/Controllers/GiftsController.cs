@@ -45,9 +45,6 @@ namespace ApiChineseAction.Controllers
             }
 
         }
-   
-
-
 
         // PUT api/<<GiftsController>/5
         [HttpPut("{id}")]
